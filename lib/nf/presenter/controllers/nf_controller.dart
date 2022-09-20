@@ -223,7 +223,14 @@ class NfController extends ChangeNotifier {
                                   pw.BoxDecoration(border: pw.Border.all()),
                               child: pw.Center(
                                 child: pw.Text(
-                                  totalItemPrice(item),
+                                  formatter.format(
+                                    double.parse(
+                                      item.price.text
+                                          .replaceAll('R\$', '')
+                                          .replaceAll('.', '')
+                                          .replaceAll(',', '.'),
+                                    ),
+                                  ),
                                   style: textSyle,
                                 ),
                               ),
